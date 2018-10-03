@@ -4,7 +4,7 @@
   "description": "This Dashboard Provides a List of Tools Helpful for Building AI & ML related Applications. Intents Training, Text to Speech Conversion are few of them to name.",
   "main": "app.js",
   "scripts": {
-    "start": "pm2 start ecosystem.config.js",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Akhil Mukkamala",

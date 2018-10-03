@@ -137,4 +137,6 @@ app.use((err, req, res) => {
 
 app.listen(port, domain, () => {
     console.log("Info:", `Listening on Port ${port} in ${environment} Mode at ${domain}`);
-  });
+});
+
+  // "start": "pm2 start ecosystem.config.js",
