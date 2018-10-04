@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/getAll', (req, res, next) => {
-  Intents.getAllIntentsWithSentences({}, (err, result) => {
+  Intents.getAllIntentsWithSentences({}, (err, data) => {
     if (err) {
       return next(err);
     } else {
