@@ -24,7 +24,7 @@ module.exports = {
     env_production: {
       PORT: 8080,
       NODE_ENV: 'production',
-      URL: '0.0.0.0',
+      URL: 'https://ai-ml-dashboard-backend.herokuapp.com',
       USERNAME: 'ai-prod',
       PASSWORD: 'aiProd5',
       MHOST: "ds121593.mlab.com",
