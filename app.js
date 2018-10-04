@@ -13,10 +13,9 @@ const baseConfig = require('./config/base.config').config();
 const pm2Config = require('./ecosystem.config');
 
 let mongoURI = baseConfig.connectionString;
-let port = baseConfig.port;
+let port = process.env.PORT || baseConfig.port;
 let database = baseConfig.database;
-let domain = baseConfig.domain;
-
+let domain = process.env.domain || baseConfig.domain;
 let environment = baseConfig.environment;
 
 // DB Config and Connections
