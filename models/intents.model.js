@@ -1,19 +1,21 @@
 const mongoose = require('mongoose');
 
 var intentSchema = new mongoose.Schema({
-  intentName: {
-    type: String,
-    unique: true,
-    required: true,
-    trim: true,
-    lowercase: true,
-  },
-  sentences: {
-    type: Array,
-    unique: true,
-    trim: true,
-    default: []
-  }
+  intents: [{
+    intent: {
+      type: String,
+      unique: true,
+      required: true,
+      trim: true,
+      lowercase: true,
+    },
+    sentences: {
+      type: Array,
+      unique: true,
+      trim: true,
+      default: []
+    }
+  }]
 }, {
   timestamps: true,
 }, {
