@@ -11,7 +11,7 @@ router.get('/getAll', (req, res, next) => {
     if (err) {
       return next(err);
     } else {
-      return res.status(200).send({'data': data});
+      return res.status(200).json(data);
     }
   })
 })
