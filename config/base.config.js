@@ -1,6 +1,6 @@
 const pm2 = require('./../ecosystem.config');
 
-let environment = process.env.NODE_ENV || 'development';
+let environment = process.env.NODE_ENV || 'production';
 
 
 let connectionString = '';
@@ -29,11 +29,11 @@ const configs = (err) => {
     };
   } else if (environment == 'production'){
     connectionString = pm2.apps[0].env_production.connectionString;
-    domain = pm2.apps[0].env.URL;
-    database = pm2.apps[0].env.DB;
+    domain = pm2.apps[0].env_production.URL;
+    database = pm2.apps[0].env_production.DB;
     port = pm2.apps[0].env_production.PORT;
-    MHOST = pm2.apps[0].env.MHOST;
-    MPORT = pm2.apps[0].env.MPORT;
+    MHOST = pm2.apps[0].env_production.MHOST;
+    MPORT = pm2.apps[0].env_production.MPORT;
     return {
       environment: environment,
       connectionString: connectionString,

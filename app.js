@@ -30,7 +30,7 @@ mongoose.connect(
     if (err) {
       console.log(err);
     } else {
-      console.log(`Connection to database '${database}' Successfull`);
+      console.log(`Connection to database ${database} Successfull`);
     }
   }
 );
@@ -74,7 +74,8 @@ app.set("views", path.join(__dirname, "views"));
 
 app.set("view engine", "ejs");
 
-app.use(express.static(path.join(__dirname, 'assets')));
+// app.use(express.static(path.join(__dirname, 'assets')));
+app.use(express.static('./../AI-ML-Dashboard-Frontend/dist/AIMLDashboard'));
 
 
 app.use((req, res, next) => {
@@ -98,9 +99,13 @@ const home = require('./controllers/api.intents');
 app.use('/', home);
 
 
-app.options("*", (req, res) => {
-  res.end();
-});
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'AI-ML-Dashboard/dist/AIMLDashboard/index.html'))
+})
+
+// app.options("*", (req, res) => {
+//   res.end();
+// });
 
 // To show which URL is being hit in the Console/Terminal.
 

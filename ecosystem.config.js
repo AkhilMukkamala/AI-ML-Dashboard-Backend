@@ -1,6 +1,6 @@
 module.exports = {
   apps: [{
-    name: 'AI-ML-Dashboard-Backend',
+    name: 'app',
     script: 'npm',
     args: "start",
     output: './logs/pm2/out.log',
@@ -22,26 +22,30 @@ module.exports = {
       }
     },
     env_production: {
-      PORT: 5509,
+      PORT: 8080,
       NODE_ENV: 'production',
       URL: '0.0.0.0',
-      MHOST: "localhost",
-      MPORT: "27017",
+      USERNAME: 'ai-prod',
+      PASSWORD: 'aiProd5',
+      MHOST: "ds121593.mlab.com",
+      MPORT: "21593",
       DB: "ai-prod",
       get connectionString() {
-        return `mongodb://${this.MHOST}:${this.MPORT}/${this.DB}`
+        return `mongodb://${this.USERNAME}:${this.PASSWORD}@${this.MHOST}:${this.MPORT}/${this.DB}`
       }
     }
   }],
 
-  deploy: {
-    production: {
-      user: 'node',
-      host: '212.83.163.1',
-      ref: 'origin/master',
-      repo: 'git@github.com:repo.git',
-      path: '/var/www/production',
-      'post-deploy': 'npm install && pm2 reload ecosystem.config.js --env production'
-    }
-  }
+  // deploy: {
+  //   production: {
+  //     user: 'node',
+  //     host: '212.83.163.1',
+  //     ref: 'origin/master',
+  //     repo: 'git@github.com:repo.git',
+  //     path: '/var/www/production',
+  //     'post-deploy': 'npm install && pm2 reload ecosystem.config.js --env production'
+  //   }
+  // }
 };
+
+//mongodb://<dbuser>:<dbpassword>@ds121593.mlab.com:21593/ai-prod
